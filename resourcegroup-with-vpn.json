@@ -4,11 +4,11 @@
     "parameters": {
         "connections_itd_vpn_location": {
             "defaultValue": null,
-            "type": "SecureString"
+            "type": "String"
         },
         "connections_itd_vpn_location_1": {
             "defaultValue": null,
-            "type": "SecureString"
+            "type": "String"
         },
         "routeTables_route_name": {
             "defaultValue": "route",
