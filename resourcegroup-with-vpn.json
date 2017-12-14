@@ -233,9 +233,6 @@
                     ]
                 }
             },
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_itdtestvm687_name'))]"
-            ]
         },
         {
             "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Compute/virtualMachines/itdvm300'.",
