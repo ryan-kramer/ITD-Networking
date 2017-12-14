@@ -1,0 +1,1803 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "connections_itd_vpn_location": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "connections_itd_vpn_location_1": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "routeTables_route_name": {
+            "defaultValue": "route",
+            "type": "String"
+        },
+        "routeTables_to_pa_name": {
+            "defaultValue": "to-pa",
+            "type": "String"
+        },
+        "connections_itd_vpn_name": {
+            "defaultValue": "itd-vpn",
+            "type": "String"
+        },
+        "routeTables_PA_trust_name": {
+            "defaultValue": "PA-trust",
+            "type": "String"
+        },
+        "virtualNetworks_fwVNET_name": {
+            "defaultValue": "fwVNET",
+            "type": "String"
+        },
+        "publicIPAddresses_itdpa_name": {
+            "defaultValue": "itdpa",
+            "type": "String"
+        },
+        "virtualMachines_itdvm300_name": {
+            "defaultValue": "itdvm300",
+            "type": "String"
+        },
+        "virtualMachines_test_vm2_name": {
+            "defaultValue": "test-vm2",
+            "type": "String"
+        },
+        "virtualMachines_ITDtestVM_name": {
+            "defaultValue": "ITDtestVM",
+            "type": "String"
+        },
+        "publicIPAddresses_ITD_VPN_name": {
+            "defaultValue": "ITD-VPN",
+            "type": "String"
+        },
+        "storageAccounts_itdpaloalto_name": {
+            "defaultValue": "itdpaloalto",
+            "type": "String"
+        },
+        "localNetworkGateways_gateway_name": {
+            "defaultValue": "gateway",
+            "type": "String"
+        },
+        "networkInterfaces_test_vm2301_name": {
+            "defaultValue": "test-vm2301",
+            "type": "String"
+        },
+        "networkInterfaces_itdtestvm687_name": {
+            "defaultValue": "itdtestvm687",
+            "type": "String"
+        },
+        "virtualNetworkGateways_ITD_VPN_name": {
+            "defaultValue": "ITD-VPN",
+            "type": "String"
+        },
+        "publicIPAddresses_server_ext_ip_name": {
+            "defaultValue": "server_ext_ip",
+            "type": "String"
+        },
+        "storageAccounts_rkramerdisks538_name": {
+            "defaultValue": "rkramerdisks538",
+            "type": "String"
+        },
+        "networkSecurityGroups_PA_untrust_name": {
+            "defaultValue": "PA-untrust",
+            "type": "String"
+        },
+        "routes_0.0.0.0_name": {
+            "defaultValue": "0.0.0.0",
+            "type": "String"
+        },
+        "routes_0.0.0.0_name_1": {
+            "defaultValue": "0.0.0.0",
+            "type": "String"
+        },
+        "routes_10.0.2.0_name": {
+            "defaultValue": "10.0.2.0",
+            "type": "String"
+        },
+        "routes_10.0.1.0_name": {
+            "defaultValue": "10.0.1.0",
+            "type": "String"
+        },
+        "routes_10.0.4.0_name": {
+            "defaultValue": "10.0.4.0",
+            "type": "String"
+        },
+        "publicIPAddresses_ipconfig_untrust_name": {
+            "defaultValue": "ipconfig-untrust",
+            "type": "String"
+        },
+        "networkSecurityGroups_ITDtestVM_nsg_name": {
+            "defaultValue": "ITDtestVM-nsg",
+            "type": "String"
+        },
+        "subnets_Mgmt_name": {
+            "defaultValue": "Mgmt",
+            "type": "String"
+        },
+        "routes_10.0.4.0_name_1": {
+            "defaultValue": "10.0.4.0",
+            "type": "String"
+        },
+        "routes_192.168.0.0_name": {
+            "defaultValue": "192.168.0.0",
+            "type": "String"
+        },
+        "routes_192.168.0.0_name_1": {
+            "defaultValue": "192.168.0.0",
+            "type": "String"
+        },
+        "subnets_Trust_name": {
+            "defaultValue": "Trust",
+            "type": "String"
+        },
+        "networkInterfaces_itdvm300_itdpa_eth0_name": {
+            "defaultValue": "itdvm300-itdpa-eth0",
+            "type": "String"
+        },
+        "networkInterfaces_itdvm300_itdpa_eth1_name": {
+            "defaultValue": "itdvm300-itdpa-eth1",
+            "type": "String"
+        },
+        "networkInterfaces_itdvm300_itdpa_eth2_name": {
+            "defaultValue": "itdvm300-itdpa-eth2",
+            "type": "String"
+        },
+        "subnets_Untrust_name": {
+            "defaultValue": "Untrust",
+            "type": "String"
+        },
+        "subnets_servers_name": {
+            "defaultValue": "servers",
+            "type": "String"
+        },
+        "publicIPAddresses_itdvm300_itdpa_eth1_2_name": {
+            "defaultValue": "itdvm300-itdpa-eth1-2",
+            "type": "String"
+        },
+        "publicIPAddresses_itdvm300_itdpa_eth1_3_name": {
+            "defaultValue": "itdvm300-itdpa-eth1-3",
+            "type": "String"
+        },
+        "subnets_GatewaySubnet_name": {
+            "defaultValue": "GatewaySubnet",
+            "type": "String"
+        },
+        "securityRules_Port_Any_name": {
+            "defaultValue": "Port_Any",
+            "type": "String"
+        },
+        "securityRules_Port_Any_inbound_name": {
+            "defaultValue": "Port_Any_inbound",
+            "type": "String"
+        },
+        "securityRules_default_allow_ssh_name": {
+            "defaultValue": "default-allow-ssh",
+            "type": "String"
+        },
+        "virtualMachines_ITDtestVM_id": {
+            "defaultValue": "/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/RKRAMER/providers/Microsoft.Compute/disks/ITDtestVM_OsDisk_1_af480e1dc04644d0a343787b4e1186e0",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Compute/virtualMachines/ITDtestVM'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_ITDtestVM_name')]",
+            "apiVersion": "2017-03-30",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Basic_A0"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "Canonical",
+                        "offer": "UbuntuServer",
+                        "sku": "17.04",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_ITDtestVM_name'),'_OsDisk_1_af480e1dc04644d0a343787b4e1186e0')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS",
+                            "id": "[parameters('virtualMachines_ITDtestVM_id')]"
+                        },
+                        "diskSizeGB": 30
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_ITDtestVM_name')]",
+                    "adminUsername": "itdadmin",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false
+                    },
+                    "secrets": []
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_itdtestvm687_name'))]"
+                        }
+                    ]
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_itdtestvm687_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Compute/virtualMachines/itdvm300'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_itdvm300_name')]",
+            "apiVersion": "2017-03-30",
+            "location": "centralus",
+            "plan": {
+                "name": "byol",
+                "product": "vmseries1",
+                "publisher": "paloaltonetworks"
+            },
+            "tags": {
+                "Email": "paloalto@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS3_v2_Promo"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "paloaltonetworks",
+                        "offer": "vmseries1",
+                        "sku": "byol",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "osdisk",
+                        "createOption": "FromImage",
+                        "vhd": {
+                            "uri": "[concat('https', '://', parameters('storageAccounts_itdpaloalto_name'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_itdvm300_name'),'-b4laphz4bxyte.vhd'))]"
+                        },
+                        "caching": "ReadWrite",
+                        "diskSizeGB": 60
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_itdvm300_name')]",
+                    "adminUsername": "itdadmin",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false
+                    },
+                    "secrets": []
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_itdvm300_itdpa_eth0_name'))]",
+                            "properties": {
+                                "primary": true
+                            }
+                        },
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_itdvm300_itdpa_eth1_name'))]",
+                            "properties": {
+                                "primary": false
+                            }
+                        },
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_itdvm300_itdpa_eth2_name'))]",
+                            "properties": {
+                                "primary": false
+                            }
+                        }
+                    ]
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_itdpaloalto_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_itdvm300_itdpa_eth0_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_itdvm300_itdpa_eth1_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_itdvm300_itdpa_eth2_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Compute/virtualMachines/test-vm2'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_test_vm2_name')]",
+            "apiVersion": "2017-03-30",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Basic_A0"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "Canonical",
+                        "offer": "UbuntuServer",
+                        "sku": "17.04",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[parameters('virtualMachines_test_vm2_name')]",
+                        "createOption": "FromImage",
+                        "vhd": {
+                            "uri": "[concat('https', '://', parameters('storageAccounts_rkramerdisks538_name'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_test_vm2_name'),'20171214072732.vhd'))]"
+                        },
+                        "caching": "ReadWrite",
+                        "diskSizeGB": 30
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_test_vm2_name')]",
+                    "adminUsername": "itdadmin",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false
+                    },
+                    "secrets": []
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_test_vm2301_name'))]"
+                        }
+                    ]
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_rkramerdisks538_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_test_vm2301_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/connections/itd-vpn'.",
+            "type": "Microsoft.Network/connections",
+            "name": "[parameters('connections_itd_vpn_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "resourceGuid": "bda69ef1-a5cb-4d4b-8d2c-e644e7c2c894",
+                "virtualNetworkGateway1": {
+                    "location": "[parameters('connections_itd_vpn_location')]",
+                    "properties": {}
+                },
+                "localNetworkGateway2": {
+                    "location": "[parameters('connections_itd_vpn_location_1')]",
+                    "properties": {}
+                },
+                "connectionType": "IPsec",
+                "routingWeight": 0,
+                "enableBgp": false,
+                "usePolicyBasedTrafficSelectors": false,
+                "ipsecPolicies": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/localNetworkGateways/gateway'.",
+            "type": "Microsoft.Network/localNetworkGateways",
+            "name": "[parameters('localNetworkGateways_gateway_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "resourceGuid": "8f5cb3d0-8012-425e-8b28-c960ffecbc98",
+                "localNetworkAddressSpace": {
+                    "addressPrefixes": [
+                        "192.168.0.0/16"
+                    ]
+                },
+                "gatewayIpAddress": "165.234.99.225"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/networkInterfaces/itdtestvm687'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_itdtestvm687_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "e3249594-9fdb-48fc-a84f-9380f7bf5734",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"687aacb0-93be-48cb-98bc-8d3ad92f8e06\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.4.5",
+                            "privateIPAllocationMethod": "Static",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_server_ext_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_servers_name'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": [],
+                    "internalDomainNameSuffix": "ggvsb1o0tfiu5dz5uohgdfzbba.gx.internal.cloudapp.net"
+                },
+                "macAddress": "00-0D-3A-94-BA-09",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_ITDtestVM_nsg_name'))]"
+                },
+                "primary": true,
+                "virtualMachine": {
+                    "id": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_ITDtestVM_name'))]"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_server_ext_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_servers_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_ITDtestVM_nsg_name'))]",
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_ITDtestVM_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/networkInterfaces/itdvm300-itdpa-eth0'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_itdvm300_itdpa_eth0_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "35f517df-7209-4e76-a682-19d5cfec9a83",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig-mgmt",
+                        "etag": "W/\"252cf08a-08d4-4577-8367-0c088962abf3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.0.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_itdpa_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_Mgmt_name'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "primary": true,
+                "virtualMachine": {
+                    "id": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_itdvm300_name'))]"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_itdpa_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_Mgmt_name'))]",
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_itdvm300_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/networkInterfaces/itdvm300-itdpa-eth1'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_itdvm300_itdpa_eth1_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "29a10e70-00db-43ec-9761-7074f2ec3b47",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig-untrust",
+                        "etag": "W/\"98b1a20b-8b09-47e6-a57f-d7b7634c7207\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.1.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_ipconfig_untrust_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_Untrust_name'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    },
+                    {
+                        "name": "external2",
+                        "etag": "W/\"98b1a20b-8b09-47e6-a57f-d7b7634c7207\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.1.5",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_itdvm300_itdpa_eth1_2_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_Untrust_name'))]"
+                            },
+                            "primary": false,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    },
+                    {
+                        "name": "pa-external-3",
+                        "etag": "W/\"98b1a20b-8b09-47e6-a57f-d7b7634c7207\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.1.6",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_itdvm300_itdpa_eth1_3_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_Untrust_name'))]"
+                            },
+                            "primary": false,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": true,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_PA_untrust_name'))]"
+                },
+                "primary": false,
+                "virtualMachine": {
+                    "id": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_itdvm300_name'))]"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_ipconfig_untrust_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_Untrust_name'))]",
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_itdvm300_itdpa_eth1_2_name'))]",
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_itdvm300_itdpa_eth1_3_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_PA_untrust_name'))]",
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_itdvm300_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/networkInterfaces/itdvm300-itdpa-eth2'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_itdvm300_itdpa_eth2_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "c30d37ab-132b-41d6-b72b-691af0cffc87",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig-trust",
+                        "etag": "W/\"2761bb95-7e97-43ff-b47e-f8869a5327fc\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.2.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_Trust_name'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": true,
+                "primary": false,
+                "virtualMachine": {
+                    "id": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_itdvm300_name'))]"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_Trust_name'))]",
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_itdvm300_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/networkInterfaces/test-vm2301'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_test_vm2301_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "fb56b801-b51a-4a22-9c2d-328cb820f520",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"8003d07c-8d7a-4486-90cc-c0831e09606a\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.4.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_servers_name'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "primary": true,
+                "virtualMachine": {
+                    "id": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_test_vm2_name'))]"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_servers_name'))]",
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_test_vm2_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/networkSecurityGroups/ITDtestVM-nsg'.",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_ITDtestVM_nsg_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "f7d2ad3c-65b6-46de-b3c8-95dcafe4a983",
+                "securityRules": [
+                    {
+                        "name": "default-allow-ssh",
+                        "etag": "W/\"63efc51c-d99b-4b11-999e-670ff5212b60\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 1000,
+                            "direction": "Inbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ],
+                "defaultSecurityRules": [
+                    {
+                        "name": "AllowVnetInBound",
+                        "etag": "W/\"63efc51c-d99b-4b11-999e-670ff5212b60\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Inbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowAzureLoadBalancerInBound",
+                        "etag": "W/\"63efc51c-d99b-4b11-999e-670ff5212b60\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from azure load balancer",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "AzureLoadBalancer",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Inbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllInBound",
+                        "etag": "W/\"63efc51c-d99b-4b11-999e-670ff5212b60\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all inbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Inbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowVnetOutBound",
+                        "etag": "W/\"63efc51c-d99b-4b11-999e-670ff5212b60\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Outbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowInternetOutBound",
+                        "etag": "W/\"63efc51c-d99b-4b11-999e-670ff5212b60\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to Internet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Internet",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Outbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllOutBound",
+                        "etag": "W/\"63efc51c-d99b-4b11-999e-670ff5212b60\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all outbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Outbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/networkSecurityGroups/PA-untrust'.",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_PA_untrust_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "1b148555-f17b-4618-aeec-515285dc4a53",
+                "securityRules": [
+                    {
+                        "name": "Port_Any",
+                        "etag": "W/\"1ed6eb87-6eb9-4265-afbe-2792018ce198\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Outbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_Any_inbound",
+                        "etag": "W/\"1ed6eb87-6eb9-4265-afbe-2792018ce198\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ],
+                "defaultSecurityRules": [
+                    {
+                        "name": "AllowVnetInBound",
+                        "etag": "W/\"1ed6eb87-6eb9-4265-afbe-2792018ce198\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Inbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowAzureLoadBalancerInBound",
+                        "etag": "W/\"1ed6eb87-6eb9-4265-afbe-2792018ce198\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from azure load balancer",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "AzureLoadBalancer",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Inbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllInBound",
+                        "etag": "W/\"1ed6eb87-6eb9-4265-afbe-2792018ce198\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all inbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Inbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowVnetOutBound",
+                        "etag": "W/\"1ed6eb87-6eb9-4265-afbe-2792018ce198\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Outbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowInternetOutBound",
+                        "etag": "W/\"1ed6eb87-6eb9-4265-afbe-2792018ce198\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to Internet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Internet",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Outbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllOutBound",
+                        "etag": "W/\"1ed6eb87-6eb9-4265-afbe-2792018ce198\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all outbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Outbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/publicIPAddresses/ipconfig-untrust'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_ipconfig_untrust_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "b367a6bf-a91e-4f99-9961-a244cccf3b26",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 30,
+                "dnsSettings": {
+                    "domainNameLabel": "stateofnd",
+                    "fqdn": "stateofnd.centralus.cloudapp.azure.com"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/publicIPAddresses/ITD-VPN'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_ITD_VPN_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "7609b21e-cef4-4f4c-9bf5-b7dbbeddb9de",
+                "ipAddress": "52.165.135.119",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/publicIPAddresses/itdpa'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_itdpa_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "94169407-9ec0-4daf-9d34-d29247dca575",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "[parameters('publicIPAddresses_itdpa_name')]",
+                    "fqdn": "[concat(parameters('publicIPAddresses_itdpa_name'),'.centralus.cloudapp.azure.com')]"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/publicIPAddresses/itdvm300-itdpa-eth1-2'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_itdvm300_itdpa_eth1_2_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "469a2b90-a618-4857-8791-71f124611f62",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/publicIPAddresses/itdvm300-itdpa-eth1-3'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_itdvm300_itdpa_eth1_3_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "7dd93eae-f81a-44b3-b52b-46b0507b29f4",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/publicIPAddresses/server_ext_ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_server_ext_ip_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "be57985c-4b2d-4e90-9da9-7be28ecfbf24",
+                "ipAddress": "40.69.172.212",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 30,
+                "dnsSettings": {
+                    "domainNameLabel": "itdtestserver",
+                    "fqdn": "itdtestserver.centralus.cloudapp.azure.com"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/routeTables/PA-trust'.",
+            "type": "Microsoft.Network/routeTables",
+            "name": "[parameters('routeTables_PA_trust_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "routes": [
+                    {
+                        "name": "10.0.4.0",
+                        "etag": "W/\"efb7f9b1-709e-4804-baa5-63ca693398fd\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.4.0/24",
+                            "nextHopType": "VnetLocal"
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/routeTables/route'.",
+            "type": "Microsoft.Network/routeTables",
+            "name": "[parameters('routeTables_route_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "routes": [
+                    {
+                        "name": "0.0.0.0",
+                        "etag": "W/\"6393405f-59a5-41a8-9e51-e3087a832d75\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.0.0/8",
+                            "nextHopType": "VirtualNetworkGateway"
+                        }
+                    },
+                    {
+                        "name": "192.168.0.0",
+                        "etag": "W/\"6393405f-59a5-41a8-9e51-e3087a832d75\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "192.168.0.0/16",
+                            "nextHopType": "VirtualNetworkGateway"
+                        }
+                    },
+                    {
+                        "name": "10.0.2.0",
+                        "etag": "W/\"6393405f-59a5-41a8-9e51-e3087a832d75\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.4.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.1.4"
+                        }
+                    },
+                    {
+                        "name": "10.0.1.0",
+                        "etag": "W/\"6393405f-59a5-41a8-9e51-e3087a832d75\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.1.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.1.4"
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/routeTables/to-pa'.",
+            "type": "Microsoft.Network/routeTables",
+            "name": "[parameters('routeTables_to_pa_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "routes": [
+                    {
+                        "name": "192.168.0.0",
+                        "etag": "W/\"de42e09b-e98c-4118-8433-04e098ea75a6\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "192.168.0.0/16",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.2.4"
+                        }
+                    },
+                    {
+                        "name": "10.0.4.0",
+                        "etag": "W/\"de42e09b-e98c-4118-8433-04e098ea75a6\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.4.0/24",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.2.4"
+                        }
+                    },
+                    {
+                        "name": "0.0.0.0",
+                        "etag": "W/\"de42e09b-e98c-4118-8433-04e098ea75a6\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "0.0.0.0/0",
+                            "nextHopType": "VirtualAppliance",
+                            "nextHopIpAddress": "10.0.2.4"
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/virtualNetworkGateways/ITD-VPN'.",
+            "type": "Microsoft.Network/virtualNetworkGateways",
+            "name": "[parameters('virtualNetworkGateways_ITD_VPN_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "resourceGuid": "6ed5b74f-06f7-4942-b301-114a7f37acbf",
+                "ipConfigurations": [
+                    {
+                        "name": "default",
+                        "etag": "W/\"c478ee44-5b6b-468e-8a72-8064866d4556\"",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_ITD_VPN_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_GatewaySubnet_name'))]"
+                            }
+                        }
+                    }
+                ],
+                "sku": {
+                    "name": "VpnGw1",
+                    "tier": "VpnGw1",
+                    "capacity": 2
+                },
+                "gatewayType": "Vpn",
+                "vpnType": "RouteBased",
+                "enableBgp": true,
+                "activeActive": false,
+                "vpnClientConfiguration": {
+                    "vpnClientProtocols": [
+                        "SSTP",
+                        "IkeV2"
+                    ],
+                    "vpnClientRootCertificates": [],
+                    "vpnClientRevokedCertificates": []
+                },
+                "bgpSettings": {
+                    "asn": 65516,
+                    "bgpPeeringAddress": "10.0.3.254",
+                    "peerWeight": 0
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_ITD_VPN_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_fwVNET_name'), parameters('subnets_GatewaySubnet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/virtualNetworks/fwVNET'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_fwVNET_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "ed20ab31-99da-4f51-8f3f-a38e61972108",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.0.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "Mgmt",
+                        "etag": "W/\"4e0ef671-c602-40bf-94cd-d09eba92b8f8\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.0.0/24"
+                        }
+                    },
+                    {
+                        "name": "Untrust",
+                        "etag": "W/\"4e0ef671-c602-40bf-94cd-d09eba92b8f8\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.1.0/24",
+                            "routeTable": {
+                                "id": "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_route_name'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Trust",
+                        "etag": "W/\"4e0ef671-c602-40bf-94cd-d09eba92b8f8\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.2.0/24",
+                            "routeTable": {
+                                "id": "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_PA_trust_name'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "GatewaySubnet",
+                        "etag": "W/\"4e0ef671-c602-40bf-94cd-d09eba92b8f8\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.3.0/24",
+                            "routeTable": {
+                                "id": "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_route_name'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "servers",
+                        "etag": "W/\"4e0ef671-c602-40bf-94cd-d09eba92b8f8\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.4.0/24",
+                            "routeTable": {
+                                "id": "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_to_pa_name'))]"
+                            }
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_route_name'))]",
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_PA_trust_name'))]",
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_to_pa_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Storage/storageAccounts/itdpaloalto'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_itdpaloalto_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "encryption": {
+                    "keySource": "Microsoft.Storage",
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "defaultAction": "Allow",
+                    "ipRules": [],
+                    "virtualNetworkRules": []
+                },
+                "supportsHttpsTrafficOnly": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Storage/storageAccounts/rkramerdisks538'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_rkramerdisks538_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "centralus",
+            "tags": {
+                "Email": "rkramer@nd.gov",
+                "First Name": "Ryan",
+                "Last Name": "Kramer"
+            },
+            "scale": null,
+            "properties": {
+                "encryption": {
+                    "keySource": "Microsoft.Storage",
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    }
+                },
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "defaultAction": "Allow",
+                    "ipRules": [],
+                    "virtualNetworkRules": []
+                },
+                "supportsHttpsTrafficOnly": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/networkSecurityGroups/ITDtestVM-nsg/securityRules/default-allow-ssh'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_ITDtestVM_nsg_name'), '/', parameters('securityRules_default_allow_ssh_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 1000,
+                "direction": "Inbound",
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_ITDtestVM_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/networkSecurityGroups/PA-untrust/securityRules/Port_Any'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_PA_untrust_name'), '/', parameters('securityRules_Port_Any_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "*",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 100,
+                "direction": "Outbound",
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_PA_untrust_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/networkSecurityGroups/PA-untrust/securityRules/Port_Any_inbound'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_PA_untrust_name'), '/', parameters('securityRules_Port_Any_inbound_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "*",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 100,
+                "direction": "Inbound",
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_PA_untrust_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/routeTables/PA-trust/routes/10.0.4.0'.",
+            "type": "Microsoft.Network/routeTables/routes",
+            "name": "[concat(parameters('routeTables_PA_trust_name'), '/', parameters('routes_10.0.4.0_name_1'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "[concat(parameters('routes_10.0.4.0_name_1'),'/24')]",
+                "nextHopType": "VnetLocal"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_PA_trust_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/routeTables/route/routes/0.0.0.0'.",
+            "type": "Microsoft.Network/routeTables/routes",
+            "name": "[concat(parameters('routeTables_route_name'), '/', parameters('routes_0.0.0.0_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "[concat('1', parameters('routes_0.0.0.0_name'),'/8')]",
+                "nextHopType": "VirtualNetworkGateway"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_route_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/routeTables/route/routes/192.168.0.0'.",
+            "type": "Microsoft.Network/routeTables/routes",
+            "name": "[concat(parameters('routeTables_route_name'), '/', parameters('routes_192.168.0.0_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "[concat(parameters('routes_192.168.0.0_name'),'/16')]",
+                "nextHopType": "VirtualNetworkGateway"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_route_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/routeTables/route/routes/10.0.2.0'.",
+            "type": "Microsoft.Network/routeTables/routes",
+            "name": "[concat(parameters('routeTables_route_name'), '/', parameters('routes_10.0.2.0_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.4.0/24",
+                "nextHopType": "VirtualAppliance",
+                "nextHopIpAddress": "10.0.1.4"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_route_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/routeTables/route/routes/10.0.1.0'.",
+            "type": "Microsoft.Network/routeTables/routes",
+            "name": "[concat(parameters('routeTables_route_name'), '/', parameters('routes_10.0.1.0_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "[concat(parameters('routes_10.0.1.0_name'),'/24')]",
+                "nextHopType": "VirtualAppliance",
+                "nextHopIpAddress": "10.0.1.4"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_route_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/routeTables/to-pa/routes/192.168.0.0'.",
+            "type": "Microsoft.Network/routeTables/routes",
+            "name": "[concat(parameters('routeTables_to_pa_name'), '/', parameters('routes_192.168.0.0_name_1'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "[concat(parameters('routes_192.168.0.0_name_1'),'/16')]",
+                "nextHopType": "VirtualAppliance",
+                "nextHopIpAddress": "10.0.2.4"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_to_pa_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/routeTables/to-pa/routes/10.0.4.0'.",
+            "type": "Microsoft.Network/routeTables/routes",
+            "name": "[concat(parameters('routeTables_to_pa_name'), '/', parameters('routes_10.0.4.0_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "[concat(parameters('routes_10.0.4.0_name'),'/24')]",
+                "nextHopType": "VirtualAppliance",
+                "nextHopIpAddress": "10.0.2.4"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_to_pa_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/routeTables/to-pa/routes/0.0.0.0'.",
+            "type": "Microsoft.Network/routeTables/routes",
+            "name": "[concat(parameters('routeTables_to_pa_name'), '/', parameters('routes_0.0.0.0_name_1'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "[concat(parameters('routes_0.0.0.0_name_1'),'/0')]",
+                "nextHopType": "VirtualAppliance",
+                "nextHopIpAddress": "10.0.2.4"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_to_pa_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/virtualNetworks/fwVNET/subnets/Mgmt'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_fwVNET_name'), '/', parameters('subnets_Mgmt_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.0.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_fwVNET_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/virtualNetworks/fwVNET/subnets/Untrust'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_fwVNET_name'), '/', parameters('subnets_Untrust_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.1.0/24",
+                "routeTable": {
+                    "id": "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_route_name'))]"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_fwVNET_name'))]",
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_route_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/virtualNetworks/fwVNET/subnets/Trust'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_fwVNET_name'), '/', parameters('subnets_Trust_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.2.0/24",
+                "routeTable": {
+                    "id": "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_PA_trust_name'))]"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_fwVNET_name'))]",
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_PA_trust_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/virtualNetworks/fwVNET/subnets/GatewaySubnet'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_fwVNET_name'), '/', parameters('subnets_GatewaySubnet_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.3.0/24",
+                "routeTable": {
+                    "id": "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_route_name'))]"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_fwVNET_name'))]",
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_route_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/fc3a960a-7c4c-4bf7-9b7b-64045347cd77/resourceGroups/rkramer/providers/Microsoft.Network/virtualNetworks/fwVNET/subnets/servers'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_fwVNET_name'), '/', parameters('subnets_servers_name'))]",
+            "apiVersion": "2017-06-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.4.0/24",
+                "routeTable": {
+                    "id": "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_to_pa_name'))]"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_fwVNET_name'))]",
+                "[resourceId('Microsoft.Network/routeTables', parameters('routeTables_to_pa_name'))]"
+            ]
+        }
+    ]
+}
